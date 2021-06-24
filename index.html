@@ -131,9 +131,9 @@
 
         <div class="text-center">
           <h3>MDL_PLANAR2</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.</p>
+          <p> O MDL_PLANAR2 é um script que cria a variável p2 no espaço de trabalho e descreve as características
+            cinéticas de um simples mecanismo de ligação. Este robot tem 2 graus de liberdade que se move tanto no eixo
+            do XX como no eixo dos YY.</p>
         </div>
 
       </div>
@@ -246,9 +246,9 @@
 
         <div class="text-center">
           <h3>FANUC AM120IB/10l</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.</p>
+          <p> O Modelo Fanuc AM120iB/10L é um robot com 6 graus de liberdade que usa os parâmetros Denvait-Hartenberg O
+            conjunto de poses 6-D são obtidas, dada uma gama fixa de parâmetros alcançáveis, utilizando várias técnicas
+            de cinemática corporal rígida e dinâmica.</p>
         </div>
 
       </div>
@@ -267,40 +267,44 @@
               <h3>Matlab code</h3>
               <h4>Modelo MDL2 Planar da toolbox do Peter Corke</h4>
               <xmp style="white-space: pre-line;">
-                a1 = 1;
-                a2 = 0.7;
+                clear all
 
-                Rob = SerialLink([
-                Revolute('d', 0, 'a', a1, 'alpha', 0, 'standard')
-                Revolute('d', 0, 'a', a2, 'alpha', 0, 'standard')
-                ], ...
-                'name', 'planar 2 link');
-
-                qz = [0 0];
-                t=0:0.1:2;
-                q1_pick=[pi/2 -pi/2];
-                q2_pick=[-pi/6 pi/4];
-                s1_pick = jtraj(q1_pick, q2_pick,t);
-                plot (Rob, s1_pick, 'trail',{'r','LineWidth', 2})
-
-
-                q3_pick = [0, -pi/2]
-                s2_pick = jtraj(q2_pick, q3_pick,t);
-                plot(Rob, s2_pick)
-
-
-                s3_return = jtraj(q3_pick, q1_pick,t)
-                plot(Rob, s3_return)
-
-
-                P = zeros (0,0)
-                input ('Calculate the Position')
-                q = Rob.getpos();
-
-                P(1) = a1*cos(q(1)) + a2*cos(q(1)+q(2));
-                P(2) = a1*sin(q(1)) + a2*sin(q(1)+q(2));
-
-                disp(P)</xmp>
+                L(1) = Link([0 0 0.15 -pi/2 0]);
+                L(2) = Link([0 0 0.77 pi 0]);
+                L(3) = Link([0 0 0.1 -pi/2 0]);
+                L(4) = Link([0 -0.96 0 pi/2 0]);
+                L(5) = Link([0 -0.7 0 -pi/2 0]);
+                L(6) = Link([0 0 0 0 0]);
+                %##########################################################
+                %Pose 0; At MASTERING position;
+                %##########################################################
+                
+                Rob=SerialLink(L, 'name', 'Fanuc AM120iB/10L');
+                
+                qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);
+                Tf =Rob.fkine(qf);
+                
+                
+                q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
+                q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);
+                
+                t = 0:0.15:8;
+                Q= jtraj(q0, qf, t);
+                Tr = fkine(Rob,Q);
+                
+                for i = 1:1:length(t)
+                    T = Tr(i);
+                    trs = transl(T);
+                    xx (i)=trs(1);
+                    yy (i)=trs(2);
+                    zz (i)=trs(3);
+                end
+                
+                
+                plot3 (xx, yy, zz, 'Color',[1 0 0], 'LineWidth', 2);
+                hold on
+                plot (Rob,Q);
+                </xmp>
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
