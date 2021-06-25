@@ -27,7 +27,7 @@
   <header id="header" class="fixed-top header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h2 class="logo"><a href="index.html">Projeto final S.Robótica 2021</a></h2>
+      <h2 class="logo"><a href="index.html">Projeto Final S.Robótica 2021</a></h2>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -87,10 +87,11 @@
 
         <div class="text-center">
           <h3>Toolbox Peter Corke</h3>
-          <p> No âmbito da cadeira de Sistemas de Robótica foi proposto efectuar uma análise detalhada em Matlab com
-            base nos modelos da toolbox do Peter Corke. O Robotics Toolbox foi desenvolvido pelo Peter Corke e é
-            composto por um conjunto de ferramentas para simulação de robôs manipuladores. O Robotics Toolbox conta com
-            vários modelos de robots comerciais pré-programados que estão disponíveis para download no github ou no site
+          <p> A disciplina de Sistemas de Robótica tem como finalidade obter conhecimentos na àrea da robótica e fazer
+            uma análise detalhada em Matlab com base nos modelos da toolbox do Peter Corke. <br>
+            O Robotics Toolbox foi desenvolvido pelo Peter Corke e é composto por um conjunto de ferramentas para
+            simulação de robôs manipuladores. O Robotics Toolbox conta com vários modelos de robots comerciais
+            pré-programados que estão disponíveis para download no github ou no site:
             https://petercorke.com.</p>
         </div>
 
@@ -107,11 +108,13 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>Trabalho Pedido</h3>
             <p style="text-align: justify;">
-              Como forma de avaliar os conceitos apreendidos na cadeira de Sistemas de Robótica foi lançado o desafio
-              para efectuar uma análise detalhada com base nos modelos da toolbox do Peter Corke.<br>
-              Todo o trabalho desenvolvido deveria ser apresentado numa página web e todas as simulações efetuadas
-              deveriam ser apresentadas em vídeo.
-              Para este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics Toolbox do Peter
+              Como forma de avaliar os conceitos apreendidos na cadeira de Sistemas de Robótica foi proposto
+              efectuar uma análise detalhada com base nos modelos da toolbox do Peter Corke.<br>
+              O trabalho consite em criar uma interface gráfica onde é explicada a parte teórica que esteve envolvida no
+              estudo de cada um dos robôts
+              devendo ser criados vídeos demonstrativos do funcionamento de cada um dos robôts.
+              De modo a executar este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics Toolbox do
+              Peter
               Corke:<br> - MDL_planar2 (modelo com 2 graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
               graus de liberdade).
             </p>
@@ -214,6 +217,16 @@
             <br><br>
             <strong>SerialLink</strong>
             <br><br>
+            O Seriallink pode ser descrito como um conjunto de corpos rígidos (LINKS) numa
+            corrente, ligados por JOINTS. Cada articulação tem um grau de liberdade - que pode ser traducional
+            (articulação prismática) ou Rotacional (articulação revoluta). Basicamente, movendo cada articulação mudamos
+            a posição do manipulador de efeito final (A ferramenta no final do manipulador de ligação em série projetado
+            para interagir com o ambiente). Vamos definir que um manipulador tem articulações N numeradas de 1 a N e N+1
+            numeradas de 0 a N. Além disso, o link número 0 será a base (fixa) e o número de ligação N será o efeito
+            final. Cada articulação (j) ligará as ligações (j-1) e j.Na caixa de ferramentas RVC veremos o link de série
+            sendo descrito por uma cadeia contendo "R" e "P". Esta notação representa o tipo de cada articulação da
+            primeira à última articulação. Por exemplo, "RRRRR" representa uma ligação em série com cinco juntas
+            revolute
             A função SerialLink cria o robô utilizando os dados de cada uma das juntas.
 
             </p>
