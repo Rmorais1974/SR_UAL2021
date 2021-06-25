@@ -112,12 +112,13 @@
             <h3>Trabalho Pedido</h3>
             <p style="text-align: justify;">
               Como forma de avaliar os conceitos apreendidos na cadeira de Sistemas de Robótica foi proposto
-              efectuar uma análise detalhada com base nos modelos da Robotics Toolbox do Peter Corke.<br><br>
+              efectuar uma análise detalhada com base nos modelos da toolbox do Peter Corke.<br><br>
               O trabalho consite em criar uma interface gráfica onde é explicada a parte teórica que esteve envolvida no
               estudo de cada um dos robôts
               devendo ser criados vídeos demonstrativos do funcionamento de cada um dos robôts.
-              De modo a executar este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics
-              Toolbox:<br> - MDL_planar2 (modelo com 2 graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
+              De modo a executar este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics Toolbox do
+              Peter
+              Corke:<br> - MDL_planar2 (modelo com 2 graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
               graus de liberdade).
             </p>
 
@@ -135,16 +136,6 @@
           <p> O MDL_PLANAR2 é um script que cria a variável p2 no espaço de trabalho e descreve as características
             cinéticas de um simples mecanismo de ligação. Este robot tem 2 graus de liberdade que se move tanto no eixo
             do XX como no eixo dos YY.<br>
-            Neste video podemos ver o robot num primeiro movimento irá girar a primeira junta xxx no eixo do XX de
-            seguida com o Xx ikine /fkine ira girar a segunda junta XX graus o eixo dos yy para no fim fazer o
-            movimento da primeira junta para a posição inicial no eixo dos xx.
-            A trajectoria das juntas entre duas posições é executada com o comando.<br>
-            <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong>
-
-
-            Podemos ver também o plot da trajetoria de todos os movimentos. isso consegue-se fazendo o plot do
-            comando.<br>
-            <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
           </p>
         </div>
 
@@ -203,13 +194,12 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p style="text-align: justify;">
-              O MDL_PLANAR2 é um script que cria a variável p2 no espaço de trabalho e descreve as características
-              cinéticas de um simples mecanismo de ligação. Este robot tem 2 graus de liberdade que se move tanto no
-              eixo do XX como no eixo dos YY.
-              Neste video podemos ver o robot num primeiro movimento irá girar a primeira junta xxx no eixo do x de
-              seguida com o Xx ikine /fkine ira girar a segunda junta XX graus o eixo dos xx para no fim fazer o
-              movimento da primeira junta....
-              podemos ver também o plot da trajetoria de todos os movimentos. isso consegue-se fazendo o plot do
+              Neste video podemos ver o robot num primeiro movimento irá girar a primeira junta xxx no eixo do XX de
+              seguida com o Xx ikine /fkine ira girar a segunda junta XX graus o eixo dos yy para no fim fazer o
+              movimento da primeira junta para a posição inicial no eixo dos xx. A trajectoria das juntas entre duas
+              posições é executada com o comando<br>
+              <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong><br>
+              Podemos ver também o plot da trajetoria de todos os movimentos. isso consegue-se fazendo o plot do
               comando.<br>
               <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
 
