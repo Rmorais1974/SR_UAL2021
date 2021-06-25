@@ -342,7 +342,7 @@
               <br><br>
               No decurso do estudo deste robot foi utilizado a cinemática direta e cinemática inversa.
               <br><br>
-              <strong>Fkine - Cinemática Direta</strong>
+              
               <br><br>
               Foward Kinematics é usado para manipular a cinemática inversa, posteriormente vai retornar a matriz de
               transformação homogênea final. A cinemática direta permite determinar a posição e a orientação do
@@ -354,7 +354,11 @@
               entre zi-1 e zi ao longo de xi; αi – ângulo entre zi-1 e zi ao redor de xi; di – distância entre xi-1 e xi
               ao longo de zi-1; θi – ângulo entre xi-1 e xi ao redor de zi-1. Uma vez que todas as juntas do robô são de
               rotação, somente os θis são variáveis.
-              
+              <br><br>
+              <strong>Resolvendo a Cinemática Direta</strong>
+              qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);<br>Tf =Rob.fkine(qf)
+
+
               <br><br>
             <div style="text-align: center; width: 100%; padding: 10px;">
               <img src="./assets/img/Kinematics.png" width="100%" />
@@ -373,6 +377,8 @@
             função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho). Esse é o
             caso de nosso robô, que possui um punho esférico, no qual os eixos das suas três juntas interceptam num
             mesmo ponto.
+            <strong>Resolvendo a Cinemática Inversa</strong>
+            q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];<br>q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);
 
             </p>
 
