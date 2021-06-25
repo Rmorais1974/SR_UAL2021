@@ -87,10 +87,10 @@
 
         <div class="text-center">
           <h3>Toolbox Peter Corke</h3>
-          <p> A disciplina de Sistemas de Robótica tem como finalidade obter conhecimentos na àrea da robótica e utilizando 
-            os recursos do Matlab. Recorrendo aos modelos da Robotics Toolbox desenvolvida pelo Peter Corke pode-se fazer uma analise detalhada dos seus modelos
+          <p> A disciplina de Sistemas de Robótica tem como principal objectivo, utilizando o Matlab em conjunto com o
+            Robotics Toolbox desenvolvida pelo Peter Corke, construir e fazer uma análise detalhada dos modelos integrados na toolbox.
             <br>
-            O Robotics Toolbox é composto por um conjunto de ferramentas para simulação de robôts manipuladores e conta
+            O Robotics Toolbox é composto por um conjunto de ferramentas para simulação de robôts manipuladores. Conta
             com vários modelos de robôts comerciais pré-programados que estão disponíveis para download no github ou no
             site:
             https://www.petercorke.com.
@@ -113,8 +113,7 @@
               Como forma de avaliar os conceitos apreendidos na cadeira de Sistemas de Robótica foi proposto
               efectuar uma análise detalhada com base nos modelos da toolbox do Peter Corke.<br><br>
               O trabalho consite em criar uma interface gráfica onde é explicada a parte teórica que esteve envolvida no
-              estudo de cada um dos robôts
-              devendo ser criados vídeos demonstrativos do funcionamento de cada um dos robôts.
+              estudo de cada um dos robôts, devendo ser criados vídeos demonstrativos do funcionamento de cada um dos robôts.
               De modo a executar este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics Toolbox do
               Peter
               Corke:<br> - MDL_planar2 (modelo com 2 graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
@@ -133,7 +132,7 @@
         <div class="text-center">
           <h3>MDL_PLANAR2</h3>
           <p> O MDL_PLANAR2 é um script que cria a variável p2 no espaço de trabalho e descreve as características
-            cinéticas de um simples mecanismo de ligação. Este robot tem 2 graus de liberdade que se move tanto no eixo
+            cinéticas de um simples mecanismo de ligação.<br> Este robot tem 2 graus de liberdade que se move tanto no eixo
             do XX como no eixo dos YY.<br>
           </p>
         </div>
@@ -193,11 +192,14 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p style="text-align: justify;">
-              Neste video podemos ver o robot num primeiro movimento irá movimentar para a posição [pi/2 -pi/2] relativamente
-              à origem para de seguida movimentar-se para a posição [-pi/6 pi/4] por ultimo faz um movimento para a posição [0, -pi/2]
-              A trajectoria das juntas entre duas posições é executada com o comando<br>
+              Neste video podemos ver o robot num primeiro momento a movimentar-se para a posição [pi/2 -pi/2]
+              relativamente
+              à origem. De seguida faz um movimento para a posição [-pi/6 pi/4] por último faz um movimento para a
+              posição [0, -pi/2]
+              A trajectoria das duas juntas entre duas posições é executada com o comando<br>
               <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong><br>
-              Em cada um dos movimentos podemos ver também o plot da sua trajetoria, isso consegue-se fazendo o plot com comando.<br>
+              Em cada um dos movimentos podemos ver também o plot da sua trajetoria. Isso consegue-se com
+              comando.<br>
               <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
 
               <br><br>
@@ -205,12 +207,12 @@
               <strong>Revolute</strong>
               <br><br>
               Uma articulação de revolute (também chamada articulação pin ou articulação de dobradiça) é um par
-              cinemático com um grau de liberdade usado frequentemente em mecanismos e máquinas. A articulação limita o
+              cinemático com um grau de liberdade usado frequentemente em mecanismos. A articulação limita o
               movimento de dois corpos a uma rotação pura ao longo de um eixo comum. A junta não permite o movimento de
               translação nem o movimento linear deslizante. Quase todos os conjuntos de múltiplos corpos em movimento
               incluem as articulações revolute na sua construção. As juntas Revolute são utilizadas em numerosas
               aplicações tais como, dobradiças de porta, mecanismos e outros dispositivos de rotação de um único eixo.
-              Neste trabalho utilizamos duas juntas revulte que correspondem aos dois graus de liberdade.
+              Neste trabalho utilizamos duas juntas revolute que correspondem aos dois graus de liberdade.
               <br><br>
             <div style="text-align: center; width: 100%; padding: 10px;">
               <img src="./assets/img/Joint.png" width="50%" />
@@ -219,8 +221,8 @@
             <strong>SerialLink</strong>
             <br><br>
             O Seriallink pode ser descrito como um conjunto de corpos rígidos (LINKS) numa
-            corrente, ligados por JOINTS. Cada articulação tem um grau de liberdade - que pode ser traducional
-            (articulação prismática) ou Rotacional (articulação revoluta). Basicamente, movendo cada articulação mudamos
+            corrente ligados por juntas. Cada articulação tem um grau de liberdade que pode ser traducional
+            (articulação prismática) ou Rotacional (articulação revoluta). Basicamente movendo cada articulação mudamos
             a posição do manipulador de efeito final (A ferramenta no final do manipulador de ligação em série projetado
             para interagir com o ambiente). Vamos definir que um manipulador tem articulações N numeradas de 1 a N e N+1
             numeradas de 0 a N. Além disso, o link número 0 será a base (fixa) e o número de ligação N será o efeito
@@ -419,7 +421,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="member-img">
-                <img src="./assets/img/joao.png" class="img-fluid" alt="">
+                <img src="./assets/img/joao2.jpg" class="img-fluid" alt="">
               </div>
               <div class="member-info">
                 <h4>João Ferreira</h4>
