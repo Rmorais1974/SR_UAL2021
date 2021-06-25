@@ -194,13 +194,11 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p style="text-align: justify;">
-              Neste video podemos ver o robot num primeiro movimento irá girar a primeira junta xxx no eixo do XX de
-              seguida com o Xx ikine /fkine ira girar a segunda junta XX graus o eixo dos yy para no fim fazer o
-              movimento da primeira junta para a posição inicial no eixo dos xx. A trajectoria das juntas entre duas
-              posições é executada com o comando<br>
+              Neste video podemos ver o robot num primeiro movimento irá movimentar para a posição [pi/2 -pi/2] relativamente
+              à origem para de seguida movimentar-se para a posição [-pi/6 pi/4] por ultimo faz um movimento para a posição [0, -pi/2]
+              A trajectoria das juntas entre duas posições é executada com o comando<br>
               <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong><br>
-              Podemos ver também o plot da trajetoria de todos os movimentos. isso consegue-se fazendo o plot do
-              comando.<br>
+              Em cada um dos movimentos podemos ver também o plot da sua trajetoria, isso consegue-se fazendo o plot com comando.<br>
               <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
 
               <br><br>
