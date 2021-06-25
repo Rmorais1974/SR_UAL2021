@@ -88,12 +88,13 @@
         <div class="text-center">
           <h3>Toolbox Peter Corke</h3>
           <p> A disciplina de Sistemas de Robótica tem como finalidade obter conhecimentos na àrea da robótica e fazer
-            uma análise detalhada em Matlab recorrendo aos modelos da Robotics Toolbox desenvolvida pelo Peter Corke.
+            uma análise detalhada usando os recursos do Matlab recorrendo aos modelos da Robotics Toolbox desenvolvida
+            pelo Peter Corke.
             <br>
             O Robotics Toolbox é composto por um conjunto de ferramentas para simulação de robôts manipuladores e conta
             com vários modelos de robôts comerciais pré-programados que estão disponíveis para download no github ou no
             site:
-            https://petercorke.com.
+            https://www.petercorke.com.
           </p>
         </div>
 
@@ -111,13 +112,12 @@
             <h3>Trabalho Pedido</h3>
             <p style="text-align: justify;">
               Como forma de avaliar os conceitos apreendidos na cadeira de Sistemas de Robótica foi proposto
-              efectuar uma análise detalhada com base nos modelos da toolbox do Peter Corke.<br><br>
+              efectuar uma análise detalhada com base nos modelos da Robotics Toolbox do Peter Corke.<br><br>
               O trabalho consite em criar uma interface gráfica onde é explicada a parte teórica que esteve envolvida no
               estudo de cada um dos robôts
               devendo ser criados vídeos demonstrativos do funcionamento de cada um dos robôts.
-              De modo a executar este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics Toolbox do
-              Peter
-              Corke:<br> - MDL_planar2 (modelo com 2 graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
+              De modo a executar este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics
+              Toolbox:<br> - MDL_planar2 (modelo com 2 graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
               graus de liberdade).
             </p>
 
@@ -134,7 +134,18 @@
           <h3>MDL_PLANAR2</h3>
           <p> O MDL_PLANAR2 é um script que cria a variável p2 no espaço de trabalho e descreve as características
             cinéticas de um simples mecanismo de ligação. Este robot tem 2 graus de liberdade que se move tanto no eixo
-            do XX como no eixo dos YY.</p>
+            do XX como no eixo dos YY.<br>
+            Neste video podemos ver o robot num primeiro movimento irá girar a primeira junta xxx no eixo do XX de
+            seguida com o Xx ikine /fkine ira girar a segunda junta XX graus o eixo dos yy para no fim fazer o
+            movimento da primeira junta para a posição inicial no eixo dos xx.
+            A trajectoria das juntas entre duas posições é executada com o comando.<br>
+            <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong>
+
+
+            Podemos ver também o plot da trajetoria de todos os movimentos. isso consegue-se fazendo o plot do
+            comando.<br>
+            <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
+          </p>
         </div>
 
       </div>
@@ -343,14 +354,17 @@
               No decurso do estudo deste robot foi utilizado a cinemática direta e cinemática inversa.
               <br><br>
               <br><br>
-              <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, posteriormente vai retornar a matriz de
+              <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, posteriormente vai
+              retornar a matriz de
               transformação homogênea final. A cinemática direta permite determinar a posição e a orientação do
               end-effector em função das variáveis das juntas do robô. É possível realizar essa análise fixando um
               sistema de coordenadas em cada elo. Para fazer isso de forma sistemática, foi utilizada a os parâmetros de
               Denavit-Hartenberg (DH). Os parâmetros de DH consistem num conjunto de quatro quantidades, que descrevem a
               posição e orientação de um sistema de coordenadas de um elo em relação ao sistema de coordenadas do elo
-              precedente ao longo da cadeia cinemática. <br>Os parâmetros de DH standard são definidos como:<br> i – distância
-              entre zi-1 e zi ao longo de xi;<br> αi – ângulo entre zi-1 e zi ao redor de xi;<br> di – distância entre xi-1 e xi
+              precedente ao longo da cadeia cinemática. <br>
+              Os parâmetros de DH standard são definidos como:<br> i – distância
+              entre zi-1 e zi ao longo de xi;<br> αi – ângulo entre zi-1 e zi ao redor de xi;<br> di – distância entre
+              xi-1 e xi
               ao longo de zi-1; <br>θi – ângulo entre xi-1 e xi ao redor de zi-1.
               <br><br>
               <strong>Resolvendo a Cinemática Direta</strong><br>
