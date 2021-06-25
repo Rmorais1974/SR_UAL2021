@@ -342,20 +342,18 @@
               <br><br>
               No decurso do estudo deste robot foi utilizado a cinemática direta e cinemática inversa.
               <br><br>
-              
               <br><br>
-              Foward Kinematics é usado para manipular a cinemática inversa, posteriormente vai retornar a matriz de
+              <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, posteriormente vai retornar a matriz de
               transformação homogênea final. A cinemática direta permite determinar a posição e a orientação do
               end-effector em função das variáveis das juntas do robô. É possível realizar essa análise fixando um
               sistema de coordenadas em cada elo. Para fazer isso de forma sistemática, foi utilizada a os parâmetros de
               Denavit-Hartenberg (DH). Os parâmetros de DH consistem num conjunto de quatro quantidades, que descrevem a
               posição e orientação de um sistema de coordenadas de um elo em relação ao sistema de coordenadas do elo
-              precedente ao longo da cadeia cinemática. Os parâmetros de DH standard são definidos como: i – distância
-              entre zi-1 e zi ao longo de xi; αi – ângulo entre zi-1 e zi ao redor de xi; di – distância entre xi-1 e xi
-              ao longo de zi-1; θi – ângulo entre xi-1 e xi ao redor de zi-1. Uma vez que todas as juntas do robô são de
-              rotação, somente os θis são variáveis.
+              precedente ao longo da cadeia cinemática. <br>Os parâmetros de DH standard são definidos como:<br> i – distância
+              entre zi-1 e zi ao longo de xi;<br> αi – ângulo entre zi-1 e zi ao redor de xi;<br> di – distância entre xi-1 e xi
+              ao longo de zi-1; <br>θi – ângulo entre xi-1 e xi ao redor de zi-1.
               <br><br>
-              <strong>Resolvendo a Cinemática Direta</strong>
+              <strong>Resolvendo a Cinemática Direta</strong><br>
               qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);<br>Tf =Rob.fkine(qf)
               <br><br>
             <div style="text-align: center; width: 100%; padding: 10px;">
@@ -374,8 +372,8 @@
             inversa em dois problemas mais simples, conhecidos, respectivamente, por cinemática inversa de posição (em
             função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho). Esse é o
             caso de nosso robô, que possui um punho esférico, no qual os eixos das suas três juntas interceptam num
-            mesmo ponto.
-            <strong>Resolvendo a Cinemática Inversa</strong>
+            mesmo ponto.<br>
+            <strong>Resolvendo a Cinemática Inversa</strong><br>
             q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];<br>q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);
 
             </p>
