@@ -198,9 +198,9 @@
               posição [0, -pi/2]
               A trajectória das duas juntas entre duas posições é executada com o comando<br>
               <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong><br>
-              <strong>Onde</strong><xmp>q1_pick - é a primeira posição<br>
-                          q2_pick - posição Final<br>
-                          t - corresponde ao numero de pontos que desejamos</xmp><br>
+              <strong>Onde</strong><xmp>q1_pick - é a primeira posição
+              q2_pick - posição Final<br>
+              t - corresponde ao numero de pontos que desejamos</xmp><br>
               Em cada um dos movimentos pode-se observar o plot da sua trajetória, isso consegue-se com
               comando.<br>
               <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
@@ -230,7 +230,7 @@
             sendo descrito por uma cadeia contendo "R" e "P". Esta notação representa o tipo de cada articulação da
             primeira à última articulação. Por exemplo, "RRRRR" representa uma ligação em série com cinco juntas
             revolute
-            A função SerialLink cria o robô utilizando os dados de cada uma das juntas.
+            A função SerialLink cria o robôt utilizando os dados de cada uma das juntas.
 
             </p>
 
@@ -340,9 +340,8 @@ disp (p)<br></xmp>
             <h3>Fancuc AM120iB/10L</h3>
             <p style="text-align: justify;">
               O modelo do Fanuc AM120iB vai criar o robôt Rob usando os paramêtros Denavit-Hartenberg.
-              É definido também o vetor de coordenadas conjunta q0 correspondente à posição de inicial
+              Foi definido o vetor de coordenadas conjunta <strong>q0</strong> correspondente à posição de inicial
               O serial link irá criar um robôt definido pelos vetores de L(1) até L(6), correspondentes a cada uma das juntas.
-
               <br><br>
               No decurso do estudo deste robôt foi utilizado a cinemática direta e cinemática inversa.
               <br><br>
@@ -360,7 +359,8 @@ disp (p)<br></xmp>
               ao longo de zi-1; <br>θi – ângulo entre xi-1 e xi ao redor de zi-1.
               <br><br>
               <strong>Resolvendo a Cinemática Direta</strong><br>
-              qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);<br>Tf =Rob.fkine(qf)
+              <xmp>qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);
+                   Tf =Rob.fkine(qf)</xmp>
               <br><br>
             <div style="text-align: center; width: 100%; padding: 10px;">
               <img src="./assets/img/Kinematics.png" width="100%" />
@@ -376,7 +376,8 @@ disp (p)<br></xmp>
             inversa em dois problemas mais simples, conhecidos por cinemática inversa de posição (em
             função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho).<br>
             <strong>Resolvendo a Cinemática Inversa</strong><br>
-            q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];<br>q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);
+            <xmp>q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
+                q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
 
             </p>
 
