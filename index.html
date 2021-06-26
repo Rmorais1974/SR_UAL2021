@@ -151,7 +151,7 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
             <div class="container" style="padding: 10px;">
-              <br><br><br><br><br><br>
+              <br><br><br><br><br>
               <h3>Matlab code</h3>
               <h4>Código Matlab Modelo MDL2 Planar</h4>
               <br>
@@ -314,8 +314,10 @@ disp (p)<br>
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
             <div class="container" style="padding: 10px;">
+              <br><br><br><br><br>
               <h3>Matlab code</h3>
               <h4>Códifo Modelo Fanuc AM120iB/10L</h4>
+              <br>
               <xmp style="white-space: pre-line;">
                 clear all
 
@@ -329,7 +331,9 @@ disp (p)<br>
                 %Pose 0; At MASTERING position;
                 %##########################################################
 
+
                 Rob=SerialLink(L, 'name', 'Fanuc AM120iB/10L');
+
 
                 qf = ([pi/2 0 pi/4 pi/2 pi -pi/2]);
                 Tf =Rob.fkine(qf);
@@ -338,9 +342,11 @@ disp (p)<br>
                 q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
                 q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);
 
+
                 t = 0:0.15:8;
                 Q= jtraj(q0, qf, t);
                 Tr = fkine(Rob,Q);
+
 
                 for i = 1:1:length(t)
                 T = Tr(i);
@@ -349,7 +355,6 @@ disp (p)<br>
                 yy (i)=trs(2);
                 zz (i)=trs(3);
                 end
-
 
                 plot3 (xx, yy, zz, 'Color',[1 0 0], 'LineWidth', 2);
                 hold on
@@ -414,9 +419,6 @@ Tf =Rob.fkine(qf)</xmp>
               <xmp>q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
 q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
             </p>
-
-
-
             </p>
 
           </div>
@@ -436,7 +438,7 @@ q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>FANUC AM120iB/10L</h3>
             <p>
-              Como se pode verificar o robot faz um movimento
+              Como se pode verificar o robot movimento faz um movimento rotacional de 90 graus na base, 
 
             </p>
           </div>
