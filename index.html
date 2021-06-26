@@ -64,10 +64,10 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>Introdução</h3>
             <p style="text-align: justify;">
-              A Robótica está presente em praticamente todos os setores da indústria. Desenvolver robôts com
+              A Robótica está presente em praticamente todos os setores da indústria. Desenvolver robôs com
               sistemas confiáveis, que propocionem uma eficiência operacional na execução das suas funções e
               acima de tudo que tragam segurança aos seus utilizadores, estes são alguns dos pontos essenciais para os
-              diferentes projetos do setor industrial. Um dos pilares da Indústria 4.0 é o desenvolvimento de robôts
+              diferentes projetos do setor industrial. Um dos pilares da Indústria 4.0 é o desenvolvimento de robôs
               autônomos com um comportamento inteligente e que sejam cooperativos entre si. A Indústria 4.0 centra-se no
               desenvolvimento de processos mais autônomos e eficientes bem como oferecer soluções personalizadas para
               produção e logística. Para que isso seja possível utilizam-se tecnologias de automação industrial
@@ -91,8 +91,8 @@
             Robotics Toolbox desenvolvida pelo Peter Corke, para construir e executar uma análise detalhada dos modelos
             integrados na toolbox.
             <br>
-            O Robotics Toolbox é composto por um conjunto de ferramentas para simulação de robôts manipuladores. Conta
-            com vários modelos de robôts comerciais pré-programados disponíveis para download no github ou no
+            O Robotics Toolbox é composto por um conjunto de ferramentas para simulação de robôs manipuladores. Conta
+            com vários modelos de robôs comerciais pré-programados disponíveis para download no github ou no
             site:
             https://www.petercorke.com.
           </p>
@@ -114,9 +114,9 @@
               Como forma de avaliar os conhecimentos adquiridos na cadeira de Sistemas de Robótica foi proposto
               efectuar uma análise detalhada com base nos modelos da toolbox do Peter Corke.<br><br>
               O trabalho consiste em criar um interface gráfico onde é explicado a parte teórica que esteve envolvida no
-              estudo de cada um dos robôts, de forma a verificar o seu funcionamento serão criados vídeos
+              estudo de cada um dos robôs, de forma a verificar o seu funcionamento serão criados vídeos
               demonstrativos de cada um deles.
-              De modo a executar este trabalho o grupo escolheu dois modelos de robôts:<br> - MDL_planar2 (modelo com 2
+              De modo a executar este trabalho o grupo escolheu dois modelos de robôs:<br> - MDL_planar2 (modelo com 2
               graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
               graus de liberdade).
             </p>
@@ -151,17 +151,21 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
             <div class="container" style="padding: 10px;">
+              <br><br><br><br><br><br>
               <h3>Matlab code</h3>
               <h4>Código Matlab Modelo MDL2 Planar</h4>
+              <br>
               <xmp style="white-space: pre-line;">
                 a1 = 1;
                 a2 = 0.7;
+
 
                 Rob = SerialLink([
                 Revolute('d', 0, 'a', a1, 'alpha', 0, 'standard')
                 Revolute('d', 0, 'a', a2, 'alpha', 0, 'standard')
                 ], ...
                 'name', 'planar 2 link');
+
 
                 qz = [0 0];
                 t=0:0.1:2;
@@ -189,11 +193,14 @@
 
                 disp(P)</xmp>
             </div>
+            <p>
+            <br><br><br>
+            </p>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p style="text-align: justify;">
-              Neste primeiro vídeo podemos ver o robôt num instante inicial a movimentar-se para a posição [pi/2 -pi/2]
+              Neste primeiro vídeo podemos ver o robô num instante inicial a movimentar-se para a posição [pi/2 -pi/2]
               relativamente à origem. Num segundo movimento desloca-se para posição [-pi/6 pi/4] por último faz o
               movimento para a
               posição [0, -pi/2]
@@ -206,38 +213,41 @@
               Em cada um dos movimentos pode-se observar o plot da sua trajetória, isso consegue-se com
               comando.<br>
               <xmp>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</xmp>
-              <br><br>
+              <br>
               <strong>Revolute</strong>
-              <br><br>
-              Uma articulação de revolute é um par cinemático com um grau de liberdade usado frequentemente em
-              mecanismos.
-              A articulação limita o movimento de dois corpos a uma rotação pura ao longo de um eixo comum. A junta não
-              permite o movimento de
-              translação nem o movimento linear deslizante. Quase todos os conjuntos de múltiplos corpos em movimento
-              incluem as articulações revolute na sua construção. As juntas Revolute são utilizadas em numerosas
-              aplicações tais como, dobradiças de porta, mecanismos e outros dispositivos de rotação de um único eixo.
-              Neste trabalho utilizamos duas juntas revolute que correspondem aos dois graus de liberdade.
+              <br>
+              <p style="text-align: justify;">
+              Uma articulação de revolute é um par cinemático com um grau de liberdade.
+                A articulação limita o movimento de dois corpos a uma rotação pura ao longo de um eixo comum. A junta não
+                permite o movimento de
+                translação nem o movimento linear deslizante. Quase todos os conjuntos de múltiplos corpos em movimento
+                incluem as articulações revolute na sua construção. As juntas Revolute são utilizadas em numerosas
+                aplicações tais como, dobradiças de porta, mecanismos e outros dispositivos de rotação de um único eixo.
+                Neste trabalho utilizamos duas juntas revolute que correspondem aos dois graus de liberdade.
+              </p>
               <br><br>
             <div style="text-align: center; width: 100%; padding: 10px;">
-              <img src="./assets/img/Joint.png" width="50%" />
+              <img src="./assets/img/2joints.jpg" width="60%" />
             </div>
             <br><br>
             <strong>SerialLink</strong>
             <br><br>
-            O Seriallink pode ser descrito como um conjunto de corpos rígidos (LINKS) numa
-            corrente ligados por juntas. Cada articulação tem um grau de liberdade que pode ser traducional
-            (articulação prismática) ou Rotacional (articulação revoluta).<br> O manipulador tem articulações N
-            numeradas de 1 a N e N+1 numeradas de 0 a N. Além disso, o link número 0 será a base (fixa) e o número de
-            ligação N será o end-effector.<br> Cada articulação (j) ligará as ligações (j-1) e j.Na toolbox
-            RVC podemos ver o seriallimnk, descrito como uma cadeia contendo "R" e "P". Esta notação representa o tipo de cada articulação da
-            primeira à última articulação. Por exemplo, "RRR" representa uma ligação em série com três juntas revolute.
-            A função SerialLink cria o robôt utilizando os dados de cada uma das juntas, no caso deste trabalho temos que o robot é formado da seguinte forma:<br>
-            <xmp>Rob = SerialLink([
+            <p style="text-align: justify;">
+              O SerialLink pode ser descrito como um conjunto de corpos rígidos (LINKS) numa
+              corrente ligados por juntas. Cada articulação tem um grau de liberdade que pode ser de translação
+              (articulação prismática) ou Rotacional (articulação revoluta).<br>Na toolbox
+              RVC podemos ver o SerialLink, descrito como uma cadeia contendo "R" e "P". Esta notação representa o tipo
+              de cada articulação da
+              primeira à última. Por exemplo, "RRR" representa uma ligação em série com três juntas revolute.<br>
+              A função SerialLink cria o robô utilizando os dados de cada uma das juntas, no caso deste trabalho temos
+              que o robot é formado da seguinte forma:<br>
+              <xmp>Rob = SerialLink([
 Revolute('d', 0, 'a', a1, 'alpha', 0, 'standard')
 Revolute('d', 0, 'a', a2, 'alpha', 0, 'standard')
 ], ...
-'name', 'planar 2 link'); </xmp>
-
+'name', 'planar 2 link'); 
+              </xmp>
+              </p>  
             </p>
 
           </div>
@@ -257,18 +267,19 @@ Revolute('d', 0, 'a', a2, 'alpha', 0, 'standard')
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p>
-              Neste segundo vídeo pretende-se chamar a atenção para a janela de command, onde conseguimos ver os varios
+              Neste segundo vídeo pretende-se chamar a atenção para a janela de command, onde podemos observar os vários
               outputs
-              das diferentes posições ocupadas pelo robôt.<br>
-              No final o script pelo pede um input para ser calculada a posição final do robôt, isso é feito à custa do
-              código
+              das diferentes posições ocupadas pelo robô.<br>
+              No final o script pede um input onde será calculada a posição final do robô, efectuado com os
+              comandos do script de Matlab.
               <xmp>P = zeros (0,0)
 input ('Calculate the Position')
 q = Rob.getpos();
 
 P(1) = a1*cos(q(1)) + a2*cos(q(1)+q(2));
 P(2) = a1*sin(q(1)) + a2*sin(q(1)+q(2));
-disp (p)<br></xmp>
+disp (p)<br>
+              </xmp>
 
             </p>
           </div>
@@ -284,7 +295,7 @@ disp (p)<br></xmp>
 
         <div class="text-center">
           <h3>FANUC AM120iB/10L</h3>
-          <p> O Modelo Fanuc AM120iB/10L é um robot com 6 graus de liberdade que usa os parâmetros
+          <p> O Modelo Fanuc AM120iB/10L é um robô com 6 graus de liberdade que usa os parâmetros
             Denvait-Hartenberg.<br> O
             conjunto de poses 6-D são obtidas, dada uma gama fixa de parâmetros alcançáveis, utilizando várias técnicas
             de cinemática corporal rígida e dinâmica.</p>
@@ -298,7 +309,7 @@ disp (p)<br></xmp>
 
         <div class="row">
           <div class="col-lg-6">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/TQJmxffjIYM"
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/MmjqUt1Ws6I"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
@@ -320,7 +331,7 @@ disp (p)<br></xmp>
 
                 Rob=SerialLink(L, 'name', 'Fanuc AM120iB/10L');
 
-                qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);
+                qf = ([pi/2 0 pi/4 pi/2 pi -pi/2]);
                 Tf =Rob.fkine(qf);
 
 
@@ -347,52 +358,64 @@ disp (p)<br></xmp>
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <h3>Fancuc AM120iB/10L</h3>
+            <h3>Fanuc AM120iB/10L</h3>
             <p style="text-align: justify;">
-              O modelo do Fanuc AM120iB vai criar o robôt Rob usando os paramêtros Denavit-Hartenberg.
-              Foi definido o vetor de coordenadas conjunta <strong>q0</strong> correspondente à posição de inicial.<br>
-              O Seriallink irá criar um robôt definido pelos vetores de L(1) até L(6), correspondentes a cada uma das
+              O script do Fanuc AM120iB/10 disponível na Robotics Toolbox usa os paramêtros Denavit-Hartenberg para criar um modelo de robô.
+              Foi definido o vetor de coordenadas conjunta <strong>q0</strong> correspondente à posição inicial.<br>
+              O Seriallink criará um robô definido pelos vetores de L(1) até L(6), correspondentes a cada uma das
               juntas.<br>
               <xmp>Rob=SerialLink(L, 'name', 'Fanuc AM120iB/10L');</xmp>
               <br><br>
-              No decurso do estudo deste robôt foi utilizado a cinemática direta e cinemática inversa.
+              <p style="text-align: justify;">
+              No decurso do estudo deste robô foi utilizada a cinemática direta e inversa.
+            </p>
               <br><br>
+              <div style="text-align: center; width: 100%; padding: 10px;">
+                <img src="./assets/img/cinematica.gif" width="40%" />
+              </div>
               <br><br>
-              <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, posteriormente vai
-              retornar a matriz de transformação homogênea final. A cinemática direta permite determinar a posição e a
-              orientação do
-              end-effector em função das variáveis das juntas do robô(x,y,z). É possível realizar essa análise fixando
-              um
-              sistema de coordenadas em cada elo. Para fazer isso de forma sistemática, foi utilizada os parâmetros de
-              Denavit-Hartenberg (DH). Os parâmetros de DH consistem num conjunto de quatro quantidades, que descrevem a
-              posição e orientação de um sistema de coordenadas de um elo em relação ao sistema de coordenadas do elo
-              precedente ao longo da cadeia cinemática. <br>
-              Os parâmetros de DH standard são definidos como:<br> i – distância
-              entre zi-1 e zi ao longo de xi;<br> αi – ângulo entre zi-1 e zi ao redor de xi;<br> di – distância entre
-              xi-1 e xi
-              ao longo de zi-1; <br>θi – ângulo entre xi-1 e xi ao redor de zi-1.
-              <br><br>
+              <p style="text-align: justify;">
+                <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, que posteriormente
+                retornará a matriz de transformação homogênea final. A cinemática direta permite determinar a posição e a
+                orientação do
+                end-effector em função das variáveis das juntas do robô (x,y,z). É possível realizar essa análise fixando
+                um
+                sistema de coordenadas em cada elo. Para fazer isso de forma sistemática, foram utilizados os parâmetros de
+                Denavit-Hartenberg (DH), que consistem num conjunto de quatro elementos que descrevem a
+                posição e orientação de um sistema de coordenadas de um elo, em relação ao sistema de coordenadas do elo
+                precedente ao longo da cadeia cinemática. <br>
+                Os parâmetros de DH standard são definidos como:<br><br>
+                <strong> i</strong> – Distância entre zi-1 e zi ao longo de xi;<br> 
+                <strong>αi</strong> – Ângulo entre zi-1 e zi ao redor de xi;<br> 
+                <strong>di</strong> – Distância entre xi-1 e xi ao longo de zi-1; <br>
+                <strong>θi</strong> – Ângulo entre xi-1 e xi ao redor de zi-1.<br>
+              </p>
+              <br>
               <strong>Resolvendo a Cinemática Direta</strong><br>
               <xmp>qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);
 Tf =Rob.fkine(qf)</xmp>
               <br><br>
             <div style="text-align: center; width: 100%; padding: 10px;">
-              <img src="./assets/img/Kinematics.png" width="75%" />
+              <img src="./assets/img/kinematics3.png" width="110%" />
             </div>
             <br><br>
             <strong>Ikine - Cinemática Inversa</strong>
-            <br><br>
-            A cinemática inversa representa a transformação inversa da cinemática directa. A cinemática inversa
-            possibilita
-            determinar as variáveis das juntas em função da posição e orientação do end-effector. O conhecimento da
-            solução do problema de cinemática inversa é indispensável para o controle de trajetória ponto-a-ponto.
-            Quando a posição do centro do end-effector não é alterada com o movimento das suas juntas, é possível
-            utilizar o método de desacoplamento cinemático, que permite dividir o problema da cinemática
-            inversa em dois problemas mais simples, conhecidos por cinemática inversa de posição (em
-            função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho).<br>
-            <strong>Resolvendo a Cinemática Inversa</strong><br>
-            <xmp>q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
+            <br>
+            <p style="text-align: justify;">
+              A cinemática inversa representa a transformação inversa da cinemática directa. A cinemática inversa
+              possibilita
+              determinar as variáveis das juntas em função da posição e orientação do end-effector. O conhecimento da
+              solução do problema de cinemática inversa é indispensável para o controlo da trajetória ponto-a-ponto.
+              Quando a posição do centro do end-effector não é alterada com o movimento das suas juntas, é possível
+              utilizar o método de desacoplamento cinemático, que permite dividir o problema da cinemática
+              inversa em dois problemas mais simples, conhecidos por cinemática inversa de posição (em
+              função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho).<br>
+              <strong>Resolvendo a Cinemática Inversa</strong><br>
+              <xmp>q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
 q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
+            </p>
+
+
 
             </p>
 
@@ -405,7 +428,7 @@ q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
 
         <div class="row">
           <div class="col-lg-6">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/MmjqUt1Ws6I"
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TQJmxffjIYM"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
