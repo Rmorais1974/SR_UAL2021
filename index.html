@@ -198,6 +198,9 @@
               posição [0, -pi/2]
               A trajectória das duas juntas entre duas posições é executada com o comando<br>
               <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong><br>
+              Onde: q1_pick - é a primeira posição<br>
+                    q2_pick - posição Final<br>
+                    t - corresponde ao numero de pontos que desejamos 
               Em cada um dos movimentos pode-se observar o plot da sua trajetória, isso consegue-se com
               comando.<br>
               <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
@@ -270,7 +273,7 @@ disp (p)<br></xmp>
       <div class="container">
 
         <div class="text-center">
-          <h3>FANUC AM120IB/10L</h3>
+          <h3>FANUC AM120iB/10L</h3>
           <p> O Modelo Fanuc AM120iB/10L é um robot com 6 graus de liberdade que usa os parâmetros
             Denvait-Hartenberg.<br> O
             conjunto de poses 6-D são obtidas, dada uma gama fixa de parâmetros alcançáveis, utilizando várias técnicas
@@ -291,7 +294,7 @@ disp (p)<br></xmp>
               allowfullscreen></iframe>
             <div class="container" style="padding: 10px;">
               <h3>Matlab code</h3>
-              <h4>Modelo Fanuc AM120IB/10L da toolbox do Peter Corke</h4>
+              <h4>Códifo Modelo Fanuc AM120iB/10L</h4>
               <xmp style="white-space: pre-line;">
                 clear all
 
@@ -334,18 +337,18 @@ disp (p)<br></xmp>
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <h3>Fancuc AM120IB/10L</h3>
+            <h3>Fancuc AM120iB/10L</h3>
             <p style="text-align: justify;">
-              O MDL_PLANAR2 é um script que cria a variável p2 no espaço de trabalho e descreve as características
-              cinéticas de um simples mecanismo de ligação. Este robot tem 2 graus de liberdade que se move tanto no
-              eixo do XX como no eixo dos YY.
+              O modelo do Fanuc AM120iB vai criar o robôt Rob usando os paramêtros Denavit-Hartenberg.
+              É definido também o vetor de coordenadas conjunta q0 correspondente à posição de inicial
+              O serial link irá criar um robôt definido pelos vetores de L(1) até L(6), correspondentes a cada uma das juntas.
+
               <br><br>
-              No decurso do estudo deste robot foi utilizado a cinemática direta e cinemática inversa.
+              No decurso do estudo deste robôt foi utilizado a cinemática direta e cinemática inversa.
               <br><br>
               <br><br>
               <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, posteriormente vai
-              retornar a matriz de
-              transformação homogênea final. A cinemática direta permite determinar a posição e a orientação do
+              retornar a matriz de transformação homogênea final. A cinemática direta permite determinar a posição e a orientação do
               end-effector em função das variáveis das juntas do robô. É possível realizar essa análise fixando um
               sistema de coordenadas em cada elo. Para fazer isso de forma sistemática, foi utilizada a os parâmetros de
               Denavit-Hartenberg (DH). Os parâmetros de DH consistem num conjunto de quatro quantidades, que descrevem a
@@ -365,17 +368,13 @@ disp (p)<br></xmp>
             <br><br>
             <strong>Ikine - Cinemática Inversa</strong>
             <br><br>
-            A cinemática inversa representa a transformação inversa da cinemática directa. A característica principal
-            desta transformação é o facto de conduzir a múltiplas soluções. Para manipuladores série o posicionamento
-            num ponto (x, y, z,) arbitrário requer o mínimo de 6 graus de liberdade. A cinemática inversa possibilita
+            A cinemática inversa representa a transformação inversa da cinemática directa. A cinemática inversa possibilita
             determinar as variáveis das juntas em função da posição e orientação do end-effector. O conhecimento da
             solução do problema de cinemática inversa é indispensável para o controle de trajetória ponto-a-ponto.
             Quando a posição do centro do end-effector não é alterada com o movimento das suas juntas, é possível
-            utilizar o método de desacoplamento cinemático (Fig. 6), que permite dividir o problema da cinemática
-            inversa em dois problemas mais simples, conhecidos, respectivamente, por cinemática inversa de posição (em
-            função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho). Esse é o
-            caso de nosso robô, que possui um punho esférico, no qual os eixos das suas três juntas interceptam num
-            mesmo ponto.<br>
+            utilizar o método de desacoplamento cinemático, que permite dividir o problema da cinemática
+            inversa em dois problemas mais simples, conhecidos por cinemática inversa de posição (em
+            função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho).<br>
             <strong>Resolvendo a Cinemática Inversa</strong><br>
             q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];<br>q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);
 
@@ -396,11 +395,10 @@ disp (p)<br></xmp>
               allowfullscreen></iframe>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <h3>FANUC AM120IB/10L</h3>
+            <h3>FANUC AM120iB/10L</h3>
             <p>
-              Como podemos ver o robot,,,, ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore magna aliqua. Duis aute irure dolor in reprehenderit dlfksdf
+              Como podemos ver o robot faz um movimento 
+
             </p>
           </div>
         </div>
