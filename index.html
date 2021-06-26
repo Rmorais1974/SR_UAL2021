@@ -194,22 +194,25 @@
             <h3>MDL_PLANAR2</h3>
             <p style="text-align: justify;">
               Neste primeiro vídeo podemos ver o robôt num instante inicial a movimentar-se para a posição [pi/2 -pi/2]
-              relativamente à origem. Num segundo movimento desloca-se para posição [-pi/6 pi/4] por último faz o movimento para a
+              relativamente à origem. Num segundo movimento desloca-se para posição [-pi/6 pi/4] por último faz o
+              movimento para a
               posição [0, -pi/2]
               A trajectória das duas juntas entre duas posições é executada com o comando<br>
-              <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong><br><br>
+              <xmp>s1_pick = jtraj(q1_pick, q2_pick,t);</xmp>
               Onde:<br>
               q1_pick - posição inicial<br>
               q2_pick - posição final<br>
               t - corresponde ao numero de pontos que desejamos<br><br>
               Em cada um dos movimentos pode-se observar o plot da sua trajetória, isso consegue-se com
               comando.<br>
-              <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
+              <xmp>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</xmp>
               <br><br>
               <strong>Revolute</strong>
               <br><br>
-              Uma articulação de revolute é um par cinemático com um grau de liberdade usado frequentemente em mecanismos. 
-              A articulação limita o movimento de dois corpos a uma rotação pura ao longo de um eixo comum. A junta não permite o movimento de
+              Uma articulação de revolute é um par cinemático com um grau de liberdade usado frequentemente em
+              mecanismos.
+              A articulação limita o movimento de dois corpos a uma rotação pura ao longo de um eixo comum. A junta não
+              permite o movimento de
               translação nem o movimento linear deslizante. Quase todos os conjuntos de múltiplos corpos em movimento
               incluem as articulações revolute na sua construção. As juntas Revolute são utilizadas em numerosas
               aplicações tais como, dobradiças de porta, mecanismos e outros dispositivos de rotação de um único eixo.
@@ -223,15 +226,17 @@
             <br><br>
             O Seriallink pode ser descrito como um conjunto de corpos rígidos (LINKS) numa
             corrente ligados por juntas. Cada articulação tem um grau de liberdade que pode ser traducional
-            (articulação prismática) ou Rotacional (articulação revoluta). Basicamente movendo cada articulação mudamos
-            a posição do manipulador de efeito final (A ferramenta no final do manipulador de ligação em série projetado
-            para interagir com o ambiente). Vamos definir que um manipulador tem articulações N numeradas de 1 a N e N+1
-            numeradas de 0 a N. Além disso, o link número 0 será a base (fixa) e o número de ligação N será o efeito
-            final. Cada articulação (j) ligará as ligações (j-1) e j.Na caixa de ferramentas RVC veremos o link de série
-            sendo descrito por uma cadeia contendo "R" e "P". Esta notação representa o tipo de cada articulação da
-            primeira à última articulação. Por exemplo, "RRRRR" representa uma ligação em série com cinco juntas
-            revolute
-            A função SerialLink cria o robôt utilizando os dados de cada uma das juntas.
+            (articulação prismática) ou Rotacional (articulação revoluta).<br> O manipulador tem articulações N
+            numeradas de 1 a N e N+1 numeradas de 0 a N. Além disso, o link número 0 será a base (fixa) e o número de
+            ligação N será o end-effector.<br> Cada articulação (j) ligará as ligações (j-1) e j.Na toolbox
+            RVC podemos ver o seriallimnk, descrito como uma cadeia contendo "R" e "P". Esta notação representa o tipo de cada articulação da
+            primeira à última articulação. Por exemplo, "RRR" representa uma ligação em série com três juntas revolute.
+            A função SerialLink cria o robôt utilizando os dados de cada uma das juntas, no caso deste trabalho temos que o robot é formado da seguinte forma:<br>
+            <xmp>Rob = SerialLink([
+Revolute('d', 0, 'a', a1, 'alpha', 0, 'standard')
+Revolute('d', 0, 'a', a2, 'alpha', 0, 'standard')
+], ...
+'name', 'planar 2 link'); </xmp>
 
             </p>
 
@@ -252,22 +257,26 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p>
-              Neste segundo vídeo pretende-se chamar a atenção para a janela de command, onde conseguimos ver os varios outputs 
+              Neste segundo vídeo pretende-se chamar a atenção para a janela de command, onde conseguimos ver os varios
+              outputs
               das diferentes posições ocupadas pelo robôt.<br>
-              No final o script pelo pede um input para ser calculada a posição final do robôt, isso é feito à custa do código 
+              No final o script pelo pede um input para ser calculada a posição final do robôt, isso é feito à custa do
+              código
               <xmp>P = zeros (0,0)
 input ('Calculate the Position')
 q = Rob.getpos();
-  
+
 P(1) = a1*cos(q(1)) + a2*cos(q(1)+q(2));
 P(2) = a1*sin(q(1)) + a2*sin(q(1)+q(2));
 disp (p)<br></xmp>
-              
+
             </p>
           </div>
         </div>
 
       </div>
+
+
     </section>
 
     <section id="fanuc" class="cta">
@@ -341,16 +350,20 @@ disp (p)<br></xmp>
             <h3>Fancuc AM120iB/10L</h3>
             <p style="text-align: justify;">
               O modelo do Fanuc AM120iB vai criar o robôt Rob usando os paramêtros Denavit-Hartenberg.
-              Foi definido o vetor de coordenadas conjunta <strong>q0</strong> correspondente à posição de inicial
-              O serial link irá criar um robôt definido pelos vetores de L(1) até L(6), correspondentes a cada uma das juntas.
+              Foi definido o vetor de coordenadas conjunta <strong>q0</strong> correspondente à posição de inicial.<br>
+              O Seriallink irá criar um robôt definido pelos vetores de L(1) até L(6), correspondentes a cada uma das
+              juntas.<br>
+              <xmp>Rob=SerialLink(L, 'name', 'Fanuc AM120iB/10L');</xmp>
               <br><br>
               No decurso do estudo deste robôt foi utilizado a cinemática direta e cinemática inversa.
               <br><br>
               <br><br>
               <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, posteriormente vai
-              retornar a matriz de transformação homogênea final. A cinemática direta permite determinar a posição e a orientação do
-              end-effector em função das variáveis das juntas do robô. É possível realizar essa análise fixando um
-              sistema de coordenadas em cada elo. Para fazer isso de forma sistemática, foi utilizada a os parâmetros de
+              retornar a matriz de transformação homogênea final. A cinemática direta permite determinar a posição e a
+              orientação do
+              end-effector em função das variáveis das juntas do robô(x,y,z). É possível realizar essa análise fixando
+              um
+              sistema de coordenadas em cada elo. Para fazer isso de forma sistemática, foi utilizada os parâmetros de
               Denavit-Hartenberg (DH). Os parâmetros de DH consistem num conjunto de quatro quantidades, que descrevem a
               posição e orientação de um sistema de coordenadas de um elo em relação ao sistema de coordenadas do elo
               precedente ao longo da cadeia cinemática. <br>
@@ -364,12 +377,13 @@ disp (p)<br></xmp>
 Tf =Rob.fkine(qf)</xmp>
               <br><br>
             <div style="text-align: center; width: 100%; padding: 10px;">
-              <img src="./assets/img/Kinematics.png" width="100%" />
+              <img src="./assets/img/Kinematics.png" width="75%" />
             </div>
             <br><br>
             <strong>Ikine - Cinemática Inversa</strong>
             <br><br>
-            A cinemática inversa representa a transformação inversa da cinemática directa. A cinemática inversa possibilita
+            A cinemática inversa representa a transformação inversa da cinemática directa. A cinemática inversa
+            possibilita
             determinar as variáveis das juntas em função da posição e orientação do end-effector. O conhecimento da
             solução do problema de cinemática inversa é indispensável para o controle de trajetória ponto-a-ponto.
             Quando a posição do centro do end-effector não é alterada com o movimento das suas juntas, é possível
@@ -378,7 +392,7 @@ Tf =Rob.fkine(qf)</xmp>
             função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho).<br>
             <strong>Resolvendo a Cinemática Inversa</strong><br>
             <xmp>q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
-                q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
+q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
 
             </p>
 
@@ -399,7 +413,7 @@ Tf =Rob.fkine(qf)</xmp>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>FANUC AM120iB/10L</h3>
             <p>
-              Como podemos ver o robot faz um movimento 
+              Como se pode verificar o robot faz um movimento
 
             </p>
           </div>
