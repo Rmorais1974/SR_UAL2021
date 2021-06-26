@@ -88,10 +88,11 @@
         <div class="text-center">
           <h3>Toolbox Peter Corke</h3>
           <p> A disciplina de Sistemas de Robótica tem como principal objectivo a utilização do Matlab em conjunto com o
-            Robotics Toolbox desenvolvida pelo Peter Corke, para construir e executar uma análise detalhada dos modelos integrados na toolbox.
+            Robotics Toolbox desenvolvida pelo Peter Corke, para construir e executar uma análise detalhada dos modelos
+            integrados na toolbox.
             <br>
             O Robotics Toolbox é composto por um conjunto de ferramentas para simulação de robôts manipuladores. Conta
-            com vários modelos de robôts comerciais pré-programados que estão disponíveis para download no github ou no
+            com vários modelos de robôts comerciais pré-programados disponíveis para download no github ou no
             site:
             https://www.petercorke.com.
           </p>
@@ -110,13 +111,13 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>Trabalho Pedido</h3>
             <p style="text-align: justify;">
-              Como forma de avaliar os conceitos apreendidos na cadeira de Sistemas de Robótica foi proposto
+              Como forma de avaliar os conhecimentos adquiridos na cadeira de Sistemas de Robótica foi proposto
               efectuar uma análise detalhada com base nos modelos da toolbox do Peter Corke.<br><br>
-              O trabalho consite em criar uma interface gráfica onde é explicada a parte teórica que esteve envolvida no
-              estudo de cada um dos robôts, devendo ser criados vídeos demonstrativos do funcionamento de cada um dos robôts.
-              De modo a executar este trabalho o grupo escolheu dois modelos de robôts que estão no Robotics Toolbox do
-              Peter
-              Corke:<br> - MDL_planar2 (modelo com 2 graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
+              O trabalho consiste em criar um interface gráfico onde é explicado a parte teórica que esteve envolvida no
+              estudo de cada um dos robôts, de forma a verificar o seu funcionamento serão criados vídeos
+              demonstrativos de cada um deles.
+              De modo a executar este trabalho o grupo escolheu dois modelos de robôts:<br> - MDL_planar2 (modelo com 2
+              graus de liberdade);<br> - Fanuc AM120IB/10l (modelo com 6
               graus de liberdade).
             </p>
 
@@ -132,8 +133,8 @@
         <div class="text-center">
           <h3>MDL_PLANAR2</h3>
           <p> O MDL_PLANAR2 é um script que cria a variável p2 no espaço de trabalho e descreve as características
-            cinéticas de um simples mecanismo de ligação.<br> Este robot tem 2 graus de liberdade que se move tanto no eixo
-            do XX como no eixo dos YY.<br>
+            cinéticas de um simples mecanismo de ligação.<br> Este robot tem 2 graus de liberdade que se move tanto no
+            eixo do XX como no eixo dos YY.<br>
           </p>
         </div>
 
@@ -151,7 +152,7 @@
               allowfullscreen></iframe>
             <div class="container" style="padding: 10px;">
               <h3>Matlab code</h3>
-              <h4>Modelo MDL2 Planar da toolbox do Peter Corke</h4>
+              <h4>Código Matlab Modelo MDL2 Planar</h4>
               <xmp style="white-space: pre-line;">
                 a1 = 1;
                 a2 = 0.7;
@@ -192,23 +193,19 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p style="text-align: justify;">
-              Neste video podemos ver o robot num primeiro momento a movimentar-se para a posição [pi/2 -pi/2]
-              relativamente
-              à origem. De seguida faz um movimento para a posição [-pi/6 pi/4] por último faz um movimento para a
+              Neste primeiro vídeo podemos ver o robôt num instante inicial a movimentar-se para a posição [pi/2 -pi/2]
+              relativamente à origem. Num segundo movimento desloca-se para posição [-pi/6 pi/4] por último faz o movimento para a
               posição [0, -pi/2]
-              A trajectoria das duas juntas entre duas posições é executada com o comando<br>
+              A trajectória das duas juntas entre duas posições é executada com o comando<br>
               <strong>s1_pick = jtraj(q1_pick, q2_pick,t);</strong><br>
-              Em cada um dos movimentos podemos ver também o plot da sua trajetoria. Isso consegue-se com
+              Em cada um dos movimentos pode-se observar o plot da sua trajetória, isso consegue-se com
               comando.<br>
               <strong>plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})'</strong>
-
-              <br><br>
               <br><br>
               <strong>Revolute</strong>
               <br><br>
-              Uma articulação de revolute (também chamada articulação pin ou articulação de dobradiça) é um par
-              cinemático com um grau de liberdade usado frequentemente em mecanismos. A articulação limita o
-              movimento de dois corpos a uma rotação pura ao longo de um eixo comum. A junta não permite o movimento de
+              Uma articulação de revolute é um par cinemático com um grau de liberdade usado frequentemente em mecanismos. 
+              A articulação limita o movimento de dois corpos a uma rotação pura ao longo de um eixo comum. A junta não permite o movimento de
               translação nem o movimento linear deslizante. Quase todos os conjuntos de múltiplos corpos em movimento
               incluem as articulações revolute na sua construção. As juntas Revolute são utilizadas em numerosas
               aplicações tais como, dobradiças de porta, mecanismos e outros dispositivos de rotação de um único eixo.
@@ -251,14 +248,17 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
             <p>
-              No dois videos podemos ver o robot num primeiro movimento irá girar a primeira junta xxx no eixo do x de
-              seguida com o modo ira girar a segunda junta XX graus o eixo dos xx para no fim fazer o
-              movimento da primeira junta.<br>
-              Podemos ver também o plot da trajetoria de todos os movimentos, isso consegue-se fazendo o plot do comando
-              plot '(Rob, s1_pick, 'trail',{'r','LineWidth', 2})''<br>
-              Na janela de command do MatLab podemos ver os vários outputs correspondentes às diferentes posições do
-              robôt. <br>
-              No final o script pelo pede um input que irá dar a posição final do robôt.
+              Neste segundo video pretendemos chamar a atenção para a janela de commando, onde conseguimos ver os varios outputs 
+              das diferentes posições ocpuadas pelo robôt.<br>
+              No final o script pelo pede um input para ser calculada a posição final do robôt, isso é feito à custa do codigo 
+              <xmp>P = zeros (0,0)
+                input ('Calculate the Position')
+                q = Rob.getpos();
+  
+                P(1) = a1*cos(q(1)) + a2*cos(q(1)+q(2));
+                P(2) = a1*sin(q(1)) + a2*sin(q(1)+q(2));
+                disp (p)<br></xmp>
+              
             </p>
           </div>
         </div>
