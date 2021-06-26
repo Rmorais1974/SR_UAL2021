@@ -231,7 +231,7 @@
             </div>
             <br><br>
             <strong>SerialLink</strong>
-            <br><br>
+            <br>
             <p style="text-align: justify;">
               O SerialLink pode ser descrito como um conjunto de corpos rígidos (LINKS) numa
               corrente ligados por juntas. Cada articulação tem um grau de liberdade que pode ser de translação
@@ -266,7 +266,7 @@ Revolute('d', 0, 'a', a2, 'alpha', 0, 'standard')
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <h3>MDL_PLANAR2</h3>
-            <p>
+              <p style="text-align: justify;">
               Neste segundo vídeo pretende-se chamar a atenção para a janela de command, onde podemos observar os vários
               outputs
               das diferentes posições ocupadas pelo robô.<br>
@@ -371,16 +371,18 @@ disp (p)<br>
               juntas.<br>
               <xmp>Rob=SerialLink(L, 'name', 'Fanuc AM120iB/10L');</xmp>
               <br><br>
-              <p style="text-align: justify;">
-              No decurso do estudo deste robô foi utilizada a cinemática direta e inversa.
-            </p>
+              </p>
+              <strong>No decorrer do estudo deste robô foi utilizada a cinemática direta e inversa.</strong>
+
               <br><br>
               <div style="text-align: center; width: 100%; padding: 10px;">
                 <img src="./assets/img/cinematica.gif" width="40%" />
               </div>
               <br><br>
+
+              <strong>Foward Kinematics - Cinemática Direta</strong><br>
               <p style="text-align: justify;">
-                <strong>Foward Kinematics - </strong> é usado para manipular a cinemática inversa, que posteriormente
+                É usado para manipular a cinemática inversa, que posteriormente
                 retornará a matriz de transformação homogênea final. A cinemática direta permite determinar a posição e a
                 orientação do
                 end-effector em função das variáveis das juntas do robô (x,y,z). É possível realizar essa análise fixando
@@ -395,7 +397,6 @@ disp (p)<br>
                 <strong>di</strong> – Distância entre xi-1 e xi ao longo de zi-1; <br>
                 <strong>θi</strong> – Ângulo entre xi-1 e xi ao redor de zi-1.<br>
               </p>
-              <br>
               <strong>Resolvendo a Cinemática Direta</strong><br>
               <xmp>qf = ([pi/2 0 pi/4 -pi/2 pi -pi/2]);
 Tf =Rob.fkine(qf)</xmp>
@@ -406,7 +407,7 @@ Tf =Rob.fkine(qf)</xmp>
             <br><br>
             <strong>Ikine - Cinemática Inversa</strong>
             <br>
-            <p style="text-align: justify;">
+              <p style="text-align: justify;">
               A cinemática inversa representa a transformação inversa da cinemática directa. A cinemática inversa
               possibilita
               determinar as variáveis das juntas em função da posição e orientação do end-effector. O conhecimento da
@@ -415,11 +416,12 @@ Tf =Rob.fkine(qf)</xmp>
               utilizar o método de desacoplamento cinemático, que permite dividir o problema da cinemática
               inversa em dois problemas mais simples, conhecidos por cinemática inversa de posição (em
               função das juntas do braço), e cinemática inversa de orientação (em função das juntas do punho).<br>
+            </p>
               <strong>Resolvendo a Cinemática Inversa</strong><br>
               <xmp>q0 =[-pi/2 0 pi/4 pi/4 pi -pi/2];
 q =Rob.ikine(Tf, q0, 'mask',[1 1 1 1 1 1]);</xmp>
-            </p>
-            </p>
+
+ 
 
           </div>
         </div>
